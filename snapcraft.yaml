@@ -1,0 +1,15 @@
+name: mddt
+version: '1.0'
+base: core20
+summary: Murder Drones Download Tool
+description: A command-line tool for downloading videos.
+confinement: strict
+
+apps:
+  mddt:
+    command: mddt
+    plugs: [home, network]
+
+parts:
+  mddt:
+    plugin: nil
