@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# Check if yt-dlp is installed
+if ! command -v yt-dlp &> /dev/null; then
+    # Install yt-dlp
+    echo "yt-dlp not detected, installing yt-dlp..."
+    sudo apt update > /dev/null 2>&1
+    sudo apt upgrade -y > /dev/null 2>&1
+    sudo apt install -y yt-dlp > /dev/null 2>&1
+    echo "yt-dlp installation complete"
+fi
+
+mkdir -p ~/MurderDrones
+echo "Loading Complete"
+sleep 2
+
+# Download videos
+case "$1" in
+    --help)
+        echo "Usage: mddt [OPTIONS]"
+        echo "Options:"
+	echo "  --help		 Brings up this menu"
+        echo "  --a, --all       Download all videos in all qualities"
+        echo "  --144p           Download videos in 144p quality"
+        echo "  --240p           Download videos in 240p quality"
+        echo "  --360p           Download videos in 360p quality"
+        echo "  --480p           Download videos in 480p quality"
+        echo "  --720p           Download videos in 720p quality"
+        echo "  --1080p          Download videos in 1080p quality"
+        echo "  --1440p          Download videos in 1440p quality"
+        ;;
+    --a|--all)
+	mkdir -p ~/MurderDrones/144p
+	mkdir -p ~/MurderDrones/240p
+	mkdir -p ~/MurderDrones/360p
+	mkdir -p ~/MurderDrones/480p
+	mkdir -p ~/MurderDrones/720p
+	mkdir -p ~/MurderDrones/1080p
+	mkdir -p ~/MurderDrones/1440p
+	yt-dlp -o '~/MurderDrones/144p/%(title)s.%(ext)s' -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/240p/%(title)s.%(ext)s' -f 'bestvideo[height<=240]+bestaudio/best[height<=240]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/360p/%(title)s.%(ext)s' -f 'bestvideo[height<=360]+bestaudio/best[height<=360]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/480p/%(title)s.%(ext)s' -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/720p/%(title)s.%(ext)s' -f 'bestvideo[height<=720]+bestaudio/best[height<=720]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/1080p/%(title)s.%(ext)s' -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/1440p/%(title)s.%(ext)s' -f 'bestvideo[height<=1440]+bestaudio/best[height<=1440]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --144p)
+        mkdir -p ~/MurderDrones/144p
+        yt-dlp -o '~/MurderDrones/144p/%(title)s.%(ext)s' -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --240p)
+        mkdir -p ~/MurderDrones/240p
+        yt-dlp -o '~/MurderDrones/240p/%(title)s.%(ext)s' -f 'bestvideo[height<=240]+bestaudio/best[height<=240]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --360p)
+        mkdir -p ~/MurderDrones/360p
+        yt-dlp -o '~/MurderDrones/360p/%(title)s.%(ext)s' -f 'bestvideo[height<=360]+bestaudio/best[height<=360]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --480p)
+        mkdir -p ~/MurderDrones/480p
+        yt-dlp -o '~/MurderDrones/480p/%(title)s.%(ext)s' -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --720p)
+        mkdir -p ~/MurderDrones720p
+        yt-dlp -o '~/MurderDrones/720p/%(title)s.%(ext)s' -f 'bestvideo[height<=720]+bestaudio/best[height<=720]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --1080p)
+        mkdir -p ~/MurderDrones/1080p
+        yt-dlp -o '~/MurderDrones/1080p/%(title)s.%(ext)s' -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --1440p)
+        mkdir -p ~/MurderDrones/1440p
+        yt-dlp -o '~/MurderDrones/1440p/%(title)s.%(ext)s' -f 'bestvideo[height<=1440]+bestaudio/best[height<=1440]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    *)
+        echo "Invalid option. Use '--help' for usage instructions."
+        exit 1
+        ;;
+esac
