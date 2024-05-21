@@ -1,0 +1,235 @@
+#!/bin/bash
+
+# Check if yt-dlp is installed
+if ! command -v yt-dlp &> /dev/null; then
+    # Install yt-dlp
+    echo "yt-dlp Not Detected, Installing yt-dlp..."
+    sudo apt update > /dev/null 2>&1
+    sudo apt upgrade -y > /dev/null 2>&1
+    sudo apt install -y yt-dlp > /dev/null 2>&1
+    echo "yt-dlp Installation Complete"
+fi
+
+mkdir -p ~/MurderDrones
+echo "Loading Complete"
+sleep 1
+
+# Download videos
+case "$1" in
+    --help)
+        echo "Usage: mddt [OPTIONS]"
+        echo "Options:"
+	echo "  --help		 Brings up this menu"
+        echo "  --a, --all       Download all videos in all qualities"
+        echo "  --144p           Download videos in 144p quality"
+        echo "  --240p           Download videos in 240p quality"
+        echo "  --360p           Download videos in 360p quality"
+        echo "  --480p           Download videos in 480p quality"
+        echo "  --720p           Download videos in 720p quality"
+        echo "  --1080p          Download videos in 1080p quality"
+        echo "  --1440p          Download videos in 1440p quality"
+        ;;
+    --a|--all)
+	mkdir -p ~/MurderDrones/144p
+	mkdir -p ~/MurderDrones/240p
+	mkdir -p ~/MurderDrones/360p
+	mkdir -p ~/MurderDrones/480p
+	mkdir -p ~/MurderDrones/720p
+	mkdir -p ~/MurderDrones/1080p
+	mkdir -p ~/MurderDrones/1440p
+	yt-dlp -o '~/MurderDrones/144p/%(title)s.%(ext)s' -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/240p/%(title)s.%(ext)s' -f 'bestvideo[height<=240]+bestaudio/best[height<=240]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/360p/%(title)s.%(ext)s' -f 'bestvideo[height<=360]+bestaudio/best[height<=360]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/480p/%(title)s.%(ext)s' -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/720p/%(title)s.%(ext)s' -f 'bestvideo[height<=720]+bestaudio/best[height<=720]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/1080p/%(title)s.%(ext)s' -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	yt-dlp -o '~/MurderDrones/1440p/%(title)s.%(ext)s' -f 'bestvideo[height<=1440]+bestaudio/best[height<=1440]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --144p)
+        mkdir -p ~/MurderDrones/144p
+        yt-dlp -o '~/MurderDrones/144p/%(title)s.%(ext)s' -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --240p)
+        mkdir -p ~/MurderDrones/240p
+        yt-dlp -o '~/MurderDrones/240p/%(title)s.%(ext)s' -f 'bestvideo[height<=240]+bestaudio/best[height<=240]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --360p)
+        mkdir -p ~/MurderDrones/360p
+        yt-dlp -o '~/MurderDrones/360p/%(title)s.%(ext)s' -f 'bestvideo[height<=360]+bestaudio/best[height<=360]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --480p)
+        mkdir -p ~/MurderDrones/480p
+        yt-dlp -o '~/MurderDrones/480p/%(title)s.%(ext)s' -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --720p)
+        mkdir -p ~/MurderDrones/720p
+        yt-dlp -o '~/MurderDrones/720p/%(title)s.%(ext)s' -f 'bestvideo[height<=720]+bestaudio/best[height<=720]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --1080p)
+        mkdir -p ~/MurderDrones/1080p
+        yt-dlp -o '~/MurderDrones/1080p/%(title)s.%(ext)s' -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --1440p)
+        mkdir -p ~/MurderDrones/1440p
+        yt-dlp -o '~/MurderDrones/1440p/%(title)s.%(ext)s' -f 'bestvideo[height<=1440]+bestaudio/best[height<=1440]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	echo "Download Completed!"
+        ;;
+    --websetup)
+	echo "Creating Directories..."
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/AQAE
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/SQAE
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/SQSE
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p
+	mkdir -p ~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p
+	echo "Downloading Video Files..."
+	yt-dlp -o '~/tempfolderig/GlitchProductions/MurderDrones/SQSE/%(title)s.%(ext)s' -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 1： PILOT.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_144p.webm"
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 2： Heartbeat.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_144p.webm"
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 3： The Promening.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_144p.webm"
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 4： Cabin Fever.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_144p.webm"
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 5： Home.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_144p.webm"
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 6： Dead End.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_144p.webm"
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 7： Mass Destruction.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_144p.webm"
+        yt-dlp -o '~/tempfolderig/GlitchProductions/MurderDrones/SQSE/%(title)s.%(ext)s' -f 'bestvideo[height<=240]+bestaudio/best[height<=240]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 1： PILOT.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_240p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 2： Heartbeat.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_240p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 3： The Promening.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_240p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 4： Cabin Fever.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_240p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 5： Home.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_240p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 6： Dead End.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_240p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 7： Mass Destruction.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_240p.webm"
+        yt-dlp -o '~/tempfolderig/GlitchProductions/MurderDrones/SQSE/%(title)s.%(ext)s' -f 'bestvideo[height<=360]+bestaudio/best[height<=360]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 1： PILOT.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_360p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 2： Heartbeat.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_360p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 3： The Promening.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_360p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 4： Cabin Fever.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_360p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 5： Home.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_360p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 6： Dead End.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_360p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 7： Mass Destruction.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_360p.webm"
+        yt-dlp -o '~/tempfolderig/GlitchProductions/MurderDrones/SQSE/%(title)s.%(ext)s' -f 'bestvideo[height<=480]+bestaudio/best[height<=480]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 1： PILOT.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_480p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 2： Heartbeat.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_480p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 3： The Promening.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_480p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 4： Cabin Fever.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_480p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 5： Home.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_480p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 6： Dead End.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_480p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 7： Mass Destruction.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_480p.webm"
+        yt-dlp -o '~/tempfolderig/GlitchProductions/MurderDrones/SQSE/%(title)s.%(ext)s' -f 'bestvideo[height<=720]+bestaudio/best[height<=720]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 1： PILOT.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_720p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 2： Heartbeat.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_720p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 3： The Promening.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_720p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 4： Cabin Fever.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_720p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 5： Home.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_720p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 6： Dead End.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_720p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 7： Mass Destruction.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_720p.webm"
+        yt-dlp -o '~/tempfolderig/GlitchProductions/MurderDrones/SQSE/%(title)s.%(ext)s' -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 1： PILOT.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_1080p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 2： Heartbeat.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_1080p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 3： The Promening.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_1080p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 4： Cabin Fever.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_1080p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 5： Home.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_1080p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 6： Dead End.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_1080p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 7： Mass Destruction.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_1080p.webm"
+        yt-dlp -o '~/tempfolderig/GlitchProductions/MurderDrones/SQSE/%(title)s.%(ext)s' -f 'bestvideo[height<=1440]+bestaudio/best[height<=1440]' 'https://youtube.com/playlist?list=PLJEIElJJibBx47hrvqvNh1XxSeVMWZeI7&si=7Y8IvQcA4Ttjs6YT'
+	mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 1： PILOT.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_1440p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 2： Heartbeat.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_1440p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 3： The Promening.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_1440p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 4： Cabin Fever.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_1440p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 5： Home.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_1440p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 6： Dead End.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_1440p.webm"
+        mv "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MURDER DRONES - Episode 7： Mass Destruction.webm" "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_1440p.webm"
+	echo "Renaming Video Files..."
+	sleep 2
+	echo "Copying Video Files..."
+	cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_144p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p"
+	cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_144p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p"
+	cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_144p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p"
+	cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_144p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p"
+	cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_144p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p"
+	cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_144p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p"
+	cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_144p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p"
+	cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_240p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_240p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_240p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_240p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_240p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_240p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_240p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_360p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_360p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_360p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_360p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_360p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_360p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_360p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_480p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_480p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_480p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_480p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_480p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_480p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_480p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_720p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_720p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_720p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_720p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_720p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_720p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_720p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_1080p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_1080p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_1080p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_1080p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_1080p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_1080p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_1080p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E1_Pilot_1440p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E2_Heartbeat_1440p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E3_ThePromening_1440p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E4_CabinFever_1440p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E5_Home_1440p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E6_DeadEnd_1440p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p"
+        cp "~/tempfolderig/GlitchProductions/MurderDrones/SQSE/MurderDrones_E7_MassDestruction_1440p.webm" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p"
+	if ! command -v zip &> /dev/null; then
+    	    # Install zip
+            echo "Zip Not Detected, Installing Zip..."
+            sudo apt update > /dev/null 2>&1
+            sudo apt install -y zip > /dev/null 2>&1
+            echo "Zip Installation Complete"
+	fi
+	echo "Zipping Video Files..."
+	zip -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/AQAE.zip" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p" > /dev/null 2>&1
+	zip -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p.zip" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p" > /dev/null 2>&1
+	zip -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p.zip" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p" > /dev/null 2>&1
+	zip -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p.zip" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p" > /dev/null 2>&1
+	zip -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p.zip" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p" > /dev/null 2>&1
+	zip -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p.zip" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p" > /dev/null 2>&1
+	zip -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p.zip" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p" > /dev/null 2>&1
+	zip -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p.zip" "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p" > /dev/null 2>&1
+	echo "Deleting Extra Files"
+	rm -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/144p"
+	rm -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/240p"
+	rm -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/360p"
+	rm -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/480p"
+	rm -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/720p"
+	rm -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1080p"
+	rm -r "~/tempfolderig/GlitchProductions/MurderDrones/AQAE/1440p"
+	echo "Web Setup Completed!"
+	;;
+	*)
+        echo "Invalid option. Use '--help' for usage instructions."
+        exit 1
+        ;;
+esac
