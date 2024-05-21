@@ -1,8 +1,8 @@
-name: mddt
+name: Murder Drones Download Tool (mddt)
 version: '1.0'
 base: core20
-summary: Murder Drones Download Tool
-description: A command-line tool for downloading videos.
+summary: A command-line tool for downloading Murder Drones episodes.
+description: MDDT can be used to download any quality of every episode in the Murder Drones series, or you can even download the series in every quality!
 confinement: strict
 
 apps:
