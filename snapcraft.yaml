@@ -1,4 +1,4 @@
-name: Murder Drones Download Tool (mddt)
+name: murder-drones-download-tool
 version: '1.0'
 base: core20
 summary: A command-line tool for downloading Murder Drones episodes.
